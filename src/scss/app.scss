@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./variables";
+@import "./libs/normalize";
+
+$current-bgc: $light-bgc;
+$current-txt-color: $dark-txt;
+
+main {
+  background-color: $current-bgc;
+  color: $current-txt-color;
+}
+
+.theme {
+  &--dark {
+    $current-bgc: $dark-bgc;
+    $current-txt-color: $light-txt;
+    background-color: $current-bgc;
+    color: $current-txt-color;
+  }
+  &--light {
+    $current-bgc: $light-bgc;
+    $current-txt-color: $dark-txt;
+    background-color: $current-bgc;
+    color: $current-txt-color;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  $current-bgc: $dark-bgc;
+  $current-txt-color: $light-txt;
+  main {
+    background-color: $current-bgc;
+    color: $current-txt-color;
+  }
+}
