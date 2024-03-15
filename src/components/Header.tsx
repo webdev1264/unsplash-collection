@@ -2,14 +2,13 @@
 import { useAppDispatch } from "@/redux/store";
 import { changeTheme } from "@/redux/theme/slice";
 import { usePathname } from "next/navigation";
+import { themeSelector } from "@/redux/theme/selectors";
+import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 import { BiSolidToggleLeft } from "react-icons/bi";
 import { BiSolidToggleRight } from "react-icons/bi";
-
-import Logo from "../../public/Logo.svg";
-import { themeSelector } from "@/redux/theme/selectors";
-import { useSelector } from "react-redux";
+import Logo from "./Logo";
 
 const Header = () => {
   const { theme } = useSelector(themeSelector);
@@ -22,7 +21,10 @@ const Header = () => {
     <header className="">
       <div className="p-8 flex flex-row justify-between">
         <div className="basis-1/5">
-          <Image className="py-2" src={Logo} alt="logo" width={140} height={20} />
+          {/* <Image className="py-2" src={Logo} alt="logo" width={140} height={20} /> */}
+          <div className="py-2">
+            <Logo height={28} className="main-logo" />
+          </div>
         </div>
         <div className="basis-1/4 flex justify-between gap-1">
           <div>

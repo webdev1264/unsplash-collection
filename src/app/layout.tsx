@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import StoreProvider from "./StoreProvider";
 
-import Header from "@/components/Header";
+import Layout from "@/components/Layout";
 import "../scss/app.scss";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -23,10 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <StoreProvider>
-        <body className={beVietnamPro.className}>
-          <Header />
-          {children}
-        </body>
+        <Layout className={beVietnamPro.className}>{children}</Layout>
       </StoreProvider>
     </html>
   );
