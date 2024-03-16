@@ -5,29 +5,30 @@ import { usePathname } from "next/navigation";
 import { themeSelector } from "@/redux/theme/selectors";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import Image from "next/image";
+
 import { BiSolidToggleLeft } from "react-icons/bi";
 import { BiSolidToggleRight } from "react-icons/bi";
-import Logo from "./Logo";
+import MainLogo from "./MainLogo";
 
 const Header = () => {
   const { theme } = useSelector(themeSelector);
   const dispatch = useAppDispatch();
   const location = usePathname().slice(1);
-  const activeBtn = "px-5 py-2 font-semibold rounded-md bg-gray-200";
+
+  const activeStyleClass = theme === "theme--dark" && "active-link--dark";
+  const activeBtn = `px-5 py-2 font-semibold rounded-md bg-gray-200 ${activeStyleClass}`;
   const nonActiveBtn = "px-5 py-2 text-gray-500 font-medium";
 
   return (
-    <header className="">
-      <div className="p-8 flex flex-row justify-between">
+    <header className="h-28 px-10 flex flex-col justify-center border-b-2">
+      <div className="flex flex-row justify-between">
         <div className="basis-1/5">
-          {/* <Image className="py-2" src={Logo} alt="logo" width={140} height={20} /> */}
           <div className="py-2">
-            <Logo height={28} className="main-logo" />
+            <MainLogo height={28} className="main-logo" />
           </div>
         </div>
         <div className="basis-1/4 flex justify-between gap-1">
-          <div>
+          <div className="cursor-pointer">
             {theme === "theme--light" ? (
               <BiSolidToggleLeft className="w-12 h-11" onClick={() => dispatch(changeTheme())} />
             ) : (
@@ -44,7 +45,6 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="w-full h-px bg-gray-300"></div>
     </header>
   );
 };

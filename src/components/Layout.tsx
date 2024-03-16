@@ -13,7 +13,7 @@ const Layout = ({ children, className }: LayoutProps) => {
   return (
     <body className={`${className} ${theme}`}>
       <Header />
-      {children}
+      <main>{children}</main>
     </body>
   );
 };

@@ -1,0 +1,14 @@
+.wrapper {
+  height: 100%;
+  min-height: 100%;
+  padding: 75px 0;
+}
+
+.sideLeft {
+  background: url(../../../public/hero-left.png) top left no-repeat;
+  background-size: cover;
+}
+.sideRight {
+  background: url(../../../public/hero-right.png) top left no-repeat;
+  background-size: cover;
+}
